@@ -37,7 +37,7 @@ sudo systemctl restart node-exporter
 3. Проверьте работу
 Вручную запустите скрипт сбора температуры:
 
-``
+```
 sudo /usr/local/bin/disk_temperature.sh
 ```
 Проверьте созданный файл с метриками:
@@ -78,5 +78,6 @@ sudo smartctl -A /dev/sda
 sudo smartctl -A /dev/sdb  # если есть другие диски
 ```
 Теперь метрики температуры дисков должны быть доступны в Prometheus через Node Exporter. Вы можете добавить их в свои дашборды Grafana или настроить алерты.
+
 
 
