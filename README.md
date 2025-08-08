@@ -1,5 +1,20 @@
 # Давайте завершим настройку сбора метрик температуры дисков.
 
+
+```
+sudo apt install smartmontools
+```
+Ошибки доступа к дискам:
+Добавьте пользователя в группу disk:
+
+```
+sudo usermod -aG disk $USER
+```
+Или настройте sudoers:
+
+```
+echo "$USER ALL=(ALL) NOPASSWD: /usr/sbin/smartctl" | sudo tee /etc/sudoers.d/disk_temp
+```
 1. Добавьте параметр textfile collector в сервис Node Exporter
 Отредактируем конфигурацию сервиса:
 ```
@@ -78,6 +93,7 @@ sudo smartctl -A /dev/sda
 sudo smartctl -A /dev/sdb  # если есть другие диски
 ```
 Теперь метрики температуры дисков должны быть доступны в Prometheus через Node Exporter. Вы можете добавить их в свои дашборды Grafana или настроить алерты.
+
 
 
 
