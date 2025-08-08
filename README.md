@@ -2,7 +2,7 @@
 
 1. Добавьте параметр textfile collector в сервис Node Exporter
 Отредактируем конфигурацию сервиса:
-``
+```
 
 sudo systemctl edit --full node-exporter.service
 ```
@@ -78,4 +78,5 @@ sudo smartctl -A /dev/sda
 sudo smartctl -A /dev/sdb  # если есть другие диски
 ```
 Теперь метрики температуры дисков должны быть доступны в Prometheus через Node Exporter. Вы можете добавить их в свои дашборды Grafana или настроить алерты.
+
 
